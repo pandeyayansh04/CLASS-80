@@ -1,20 +1,22 @@
 var names=[];
+var displaynames=[];
 function submit(){
- name1=document.getElementById("name1").value;
- name2=document.getElementById("name2").value;
- name3=document.getElementById("name3").value;
- name4=document.getElementById("name4").value;
-
- names.push(name1);
- names.push(name2);
- names.push(name3);
- names.push(name4);
-
- document.getElementById("names").innerHTML=names;
- document.getElementById("submitbutton").style.display="none";
- document.getElementById("sortbutton").style.display="inline-block";
+    for(k=1;k<=4;k++) {
+        var student=document.getElementById("name_of_the_student_"+k).value;
+        names.push(student);
+        
+    }
+    for(j=0;j<names.length;j++){
+        displaynames.push("NAME - "+names[j]+"<br>");
+    }
+    document.getElementById("display_name_with_commas").innerHTML=displaynames;
+    var removecommas=displaynames.join(" ");
+    document.getElementById("display_name_without_commas").innerHTML=removecommas;
+    document.getElementById("sort_button").style.display="inline-block";
+    document.getElementById("submit_button").style.display="none";
 }
-function sort(){
-    names.sort();
-    document.getElementById("names").innerHTML=names;
+function sorting(){
+    displaynames.sort();
+    var removecommas=displaynames.join(" ");
+    document.getElementById("display_name_without_commas").innerHTML=removecommas;
 }
